@@ -1,12 +1,32 @@
 class Bases {
-    constructor(name, minutes){
-        this.name = name;
-        this.minutes = minutes;
-        this.next = null;
-        this.previous = null;
+    consturctor(){
+        this.start = null;
     }
 
-    info(){
-        return `${this.name} ${this.minutes} minutos.`
+    agregar(base){
+        if(this.start == null){
+            this.start = base;
+            base.next = this.start;
+            nuevo.previous = this.start;
+        } else {
+            let last = this.start.previous;
+            base.next = this.start;
+            base.previous = last;
+            last.next = base;
+            this.start.previous = base;
+        }
+    }
+
+    listar(){
+        let res = "";
+        let temp = this.start;
+        if(this.start != null){
+            do{
+                res += temp.info();
+                temp = temp.next;
+            } while (temp != this.start);
+        }
+
+        return res;
     }
 }
