@@ -1,0 +1,23 @@
+{
+  "name": "Listas-circulares",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bases.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farellano0/Listas-circulares.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farellano0/Listas-circulares/issues"
+  },
+  "homepage": "https://github.com/farellano0/Listas-circulares#readme",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}
