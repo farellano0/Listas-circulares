@@ -82,6 +82,55 @@ class Lista {
 
         return text;
     }
+
+    crearTarjetas(base, hour, minutes){
+        let card = "";
+        let minutesHour = 0;
+        let baseStart = this._searchBaseByName(base);
+
+        if(baseStart == null){
+            return null;
+        } else {
+            while(minutes >= 0){
+                card += baseStart.actualInfo(this._getHour(hour, minutesHour), minutes) + '\n' + '------------------------------';
+
+                minutesHour += baseStart.next.minutes;
+                minutes -= baseStart.next.minutes;
+                baseStart = baseStart.next;
+            }
+
+            return card;
+        }
+    }
+    
+    //Private Classes
+    _searchBaseByName(nameBase){
+        let baseN = this.start;
+
+        if(baseN == null){
+            return null;
+        } else {
+            do{
+                if(baseN.name == nameBase){
+                    return baseN;
+                } else {
+                    baseN = baseN.next;
+                }
+            } while(baseN != this.start);
+        }
+    }
+
+    _getHour(hour, minutes){
+        let hourMinutes = ((hour * 60) + minutes) / 60;
+        let hours = Math.trunc(hourMinutes);
+        let minute = Math.round((hourMinutes - hours) * 60);
+
+        if(minute < 10){
+            return `${hours}:0${minute}`;
+        } else {
+            return `${hours}:${minute}`;
+        }
+    }
 }
 
 module.exports = Lista;
