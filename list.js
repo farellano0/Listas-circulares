@@ -1,5 +1,6 @@
-class Lista {
-    consturctor(){
+export default class Lista {
+
+    constructor(){
         this.start = null;
         this.number = 0;
     }
@@ -9,8 +10,9 @@ class Lista {
             this.start = base;
             base.next = this.start;
             base.previous = this.start;
-            this.number++;
             console.log("Agregado sin Inicio");
+            this.number++;
+            console.log(this.number);
         } else {
             let last = this.start.previous;
             base.next = this.start;
@@ -19,6 +21,7 @@ class Lista {
             this.start.previous = base;
             this.number++;
             console.log("Último agregado");
+            console.log(this.number);
         }
     }
 
@@ -74,7 +77,7 @@ class Lista {
             text = "No hay ninguna base registrada"
         } else {
             do{
-                text += base.infoAllHTML() + '\n' + `------BASE ${i}------`;
+                text +=  `------BASE ${i}------` + '\n' + base.infoAllHTML() + '\n';
                 base = base.next;
                 i++;
             } while(base != this.start);
@@ -132,5 +135,3 @@ class Lista {
         }
     }
 }
-
-module.exports = Lista;

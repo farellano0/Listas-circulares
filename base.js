@@ -1,4 +1,5 @@
-class Base {
+export default class Base {
+
     constructor(name, minutes){
         this.name = name;
         this.minutes = minutes;
@@ -17,8 +18,8 @@ class Base {
         return `<div>
                     <p>Nombre: ${this.name}</p>
                     <p>Minutos: ${this.minutes}</p>
-                    <p>Siguiente: ${this.next}</p>
-                    <p>Anterior: ${this.previous}</p>
+                    <p>Siguiente: ${this.next.name}</p>
+                    <p>Anterior: ${this.previous.name}</p>
                 </div>`;
     }
 
@@ -30,5 +31,3 @@ class Base {
                 </div>`;
     }
 }
-
-module.exports = Base;
